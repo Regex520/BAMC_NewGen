@@ -45,14 +45,7 @@
             display: flex;
             gap: 16px;
         }
-        /* 原始线条地球logo */
         .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        /* 新增圆形气象社徽logo */
-        .logo-circle {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -255,7 +248,6 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
         }
-        /* 通用按钮基础样式 */
         .func-item a {
             display: block;
             text-align: center;
@@ -268,11 +260,10 @@
             transition: 0.2s;
             background-color: rgba(255,255,255,0.8);
         }
-        /* 长文本按钮缩小字号适配 */
+        /* 长名称按钮缩小字号适配 */
         .func-item:first-child a {
             font-size: 18px;
         }
-        /* 其余短名称按钮保持20px */
         .func-item:not(:first-child) a {
             font-size: 20px;
         }
@@ -282,11 +273,10 @@
     </style>
 </head>
 <body>
-    <!-- 头部按钮栏：双logo并排 线条标+圆形社徽 -->
+    <!-- 头部按钮栏 -->
     <div class="header">
         <div class="header-left">
-            <img class="logo" src="logo.png" alt="线条地球标志">
-            <img class="logo-circle" src="logo-circle.png" alt="宝安中学气象社圆形社徽">
+            <img class="logo" src="logo.png" alt="宝安中学气象社logo">
             <div class="title-text">宝安中学气象社 BAMC</div>
         </div>
         <div class="header-buttons">
@@ -301,18 +291,18 @@
     <!-- 弹窗1：天气提示弹窗（可修改中间文字） -->
     <div class="modal-mask" id="tipMask">
         <div class="modal-box">
-            这里填写你的天气提示文本内容，可自由修改这段文字。
+            目前没有天气提示。
             <br><br>
-            弹窗宽度占据页面50%，整体页面居中，点击下方按钮或空白区域可关闭。
+            点击下方按钮或空白区域可关闭。
             <br>
             <button class="modal-close" id="closeTip">关闭提示</button>
         </div>
     </div>
 
-    <!-- 弹窗2：天气预报弹窗（所有预报文字统一在此修改，标题改为深圳市7天天气预报） -->
+    <!-- 弹窗2：天气预报弹窗（所有预报文字统一在此修改） -->
     <div class="modal-mask" id="forecastMask">
         <div class="modal-box">
-            <!-- 顶部标题 -->
+            <!-- 顶部标题 已改为深圳市7天天气预报 -->
             <div class="forecast-top-bar">深圳市7天天气预报</div>
             <!-- 7天预报卡片文字区域 -->
             <div class="forecast-week-wrap">
@@ -356,7 +346,7 @@
                     <div class="forecast-date">6月13日</div>
                     <div class="forecast-icon-box">
                         <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">雷阵雨</div>
+                        <div class="forecast-tip">大雨</div>
                     </div>
                     <div class="forecast-high">31℃</div>
                     <div class="forecast-low">26℃</div>
@@ -365,7 +355,7 @@
                     <div class="forecast-date">6月14日</div>
                     <div class="forecast-icon-box">
                         <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">雷阵雨</div>
+                        <div class="forecast-tip">暴雨</div>
                     </div>
                     <div class="forecast-high">31℃</div>
                     <div class="forecast-low">26℃</div>
@@ -374,7 +364,7 @@
                     <div class="forecast-date">6月15日</div>
                     <div class="forecast-icon-box">
                         <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">雷阵雨</div>
+                        <div class="forecast-tip">暴雨转大雨</div>
                     </div>
                     <div class="forecast-high">29℃</div>
                     <div class="forecast-low">26℃</div>
@@ -390,20 +380,20 @@
     <div class="station-title">宝安中学实况</div>
     <div class="weather-container">
         <div class="temp-block">
-            <div class="temp-num">25.8℃</div>
-            <div class="wind-info">东南偏东风 2 级</div>
+            <div class="temp-num">21.8℃</div>
+            <div class="wind-info">东北风 1 级</div>
         </div>
         <div class="data-list">
-            <div><span>相对湿度</span> 15 公里</div>
-            <div><span>时雨量</span> 96%</div>
-            <div><span>日雨量</span> 无降雨</div>
+            <div><span>相对湿度</span> 100%</div>
+            <div><span>时雨量</span> 0mm</div>
+            <div><span>日雨量</span> 0.6mm</div>
         </div>
     </div>
 
     <!-- 分割线 -->
     <div class="divider"></div>
 
-    <!-- 其它网站 5个导航链接（第一个为台风风险指数（开发中）） -->
+    <!-- 底部网站导航 -->
     <div class="func-title">其它网站</div>
     <div class="func-links">
         <div class="func-item">
