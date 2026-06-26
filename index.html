@@ -82,6 +82,8 @@
             z-index: 99;
             align-items: center;
             justify-content: center;
+            padding: 20px; /* 移动端弹窗左右留边 */
+            overflow-y: auto; /* 弹窗内容超出时可滚动 */
         }
         /* 天气提示弹窗盒子尺寸 */
         #tipMask .modal-box {
@@ -279,6 +281,146 @@
         }
         .func-item a:hover {
             background: #f0f4f9;
+        }
+
+        /* ============================================== */
+        /* 【移动端适配核心区】768px以下屏幕生效 */
+        /* ============================================== */
+        @media (max-width: 768px) {
+            /* 全局调整 */
+            body {
+                padding: 10px;
+            }
+
+            /* 头部适配 */
+            .header {
+                flex-direction: column; /* 移动端头部上下排列 */
+                gap: 20px;
+                padding-bottom: 20px;
+            }
+            .header-left {
+                justify-content: center; /* 标题居中 */
+            }
+            .title-text {
+                font-size: 16px;
+            }
+            .tip-btn {
+                padding: 8px 20px;
+                font-size: 16px;
+            }
+
+            /* 弹窗适配 */
+            #tipMask .modal-box {
+                width: 90vw; /* 天气提示弹窗占满屏幕宽度 */
+                padding: 20px;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+            #forecastMask .modal-box {
+                width: 95vw; /* 天气预报弹窗几乎占满屏幕 */
+            }
+            .forecast-top-bar {
+                font-size: 24px;
+                padding: 15px 20px;
+            }
+            .forecast-week-wrap {
+                grid-template-columns: repeat(1, 1fr); /* 7天预报纵向排列 */
+                gap: 15px;
+                padding: 15px;
+            }
+            .forecast-day-card {
+                padding: 15px 8px;
+            }
+            .forecast-date {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            .forecast-icon {
+                font-size: 48px;
+            }
+            .forecast-high, .forecast-low {
+                font-size: 28px;
+            }
+            .forecast-release {
+                padding: 0 20px 15px;
+                font-size: 18px;
+            }
+            .modal-close {
+                margin-top: 20px;
+                padding: 6px 20px;
+                font-size: 16px;
+                width: 100%; /* 关闭按钮全屏宽度 */
+            }
+
+            /* 实况数据适配 */
+            .station-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+                text-align: center; /* 标题居中 */
+            }
+            .weather-container {
+                flex-direction: column; /* 实况数据上下排列 */
+                gap: 30px;
+                padding: 20px 30px;
+                margin-bottom: 50px;
+                max-width: 100%;
+            }
+            .temp-num {
+                font-size: 70px;
+            }
+            .wind-info {
+                font-size: 22px;
+            }
+            .data-list {
+                font-size: 24px;
+                line-height: 2;
+                text-align: center; /* 数据居中 */
+            }
+            .data-list span {
+                width: 120px;
+                display: block; /* 标签独占一行 */
+                margin: 0 auto;
+            }
+
+            /* 发布时间适配 */
+            .publishing-time {
+                font-size: 16px;
+                padding: 4px 10px;
+                bottom: -5px; /* 调整位置避免遮挡分割线 */
+            }
+
+            /* 底部导航适配 */
+            .func-title {
+                font-size: 20px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .func-links {
+                grid-template-columns: repeat(2, 1fr); /* 底部链接2列排列 */
+                gap: 15px;
+            }
+            .func-item:first-child a {
+                font-size: 14px;
+            }
+            .func-item:not(:first-child) a {
+                font-size: 16px;
+            }
+            .func-item a {
+                padding: 12px 8px;
+            }
+        }
+
+        /* 更小屏幕（手机竖屏）额外适配 */
+        @media (max-width: 480px) {
+            .temp-num {
+                font-size: 60px;
+            }
+            .data-list {
+                font-size: 20px;
+            }
+            .func-links {
+                grid-template-columns: repeat(1, 1fr); /* 超小屏底部链接1列排列 */
+            }
         }
     </style>
 </head>
