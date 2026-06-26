@@ -17,6 +17,7 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            /* 还原原始背景底色：纯白半透明，去掉黄色底色 */
             background-color: rgba(255,255,0.75);
             background-blend-mode: lighten;
             color: #000;
@@ -71,7 +72,7 @@
             left: 0;
             top: 0;
             width: 100vw;
-            height 100vh;
+            height: 100vh;
             background: rgba(0,0,0,0.5);
             z-index: 99;
             align-items: center;
@@ -92,7 +93,7 @@
         #forecastMask .modal-box {
             width: 85vw;
             background: #fff;
-            border-radius: 12;
+            border-radius: 12px;
             overflow: hidden;
         }
         .modal-close {
@@ -239,7 +240,7 @@
         .func-item:not(:first-child) a { font-size: 20px; }
         .func-item a:hover { background: #f0f4f9; }
 
-        /* ==========手机端适配核心修改========== */
+        /* ==========手机端适配（保留你要求的缩小逻辑，仅背景复原）========== */
         @media (max-width: 768px) {
             body{padding:6px}
             .header{flex-direction:column;gap:10px;padding-bottom:10px}
@@ -248,17 +249,16 @@
             .tip-btn{padding:5px 12px;font-size:13px}
             .modal-mask{padding:4px}
 
-            /* 需求2：手机天气提示弹窗自适应，边框刚好包裹内容，取消最小高度 */
+            /* 手机天气提示弹窗自适应贴合内容 */
             #tipMask .modal-box{
                 width:94vw;
                 min-height:auto;
-                height:auto;
                 padding:14px;
                 font-size:16px;
                 line-height:1.4;
             }
 
-            /* 天气预报弹窗极致缩小三列布局 */
+            /* 天气预报三列紧凑布局 */
             #forecastMask .modal-box{width:99vw}
             .forecast-top-bar{font-size:16px;padding:6px 10px}
             .forecast-week-wrap{grid-template-columns:repeat(3,1fr);gap:4px;padding:6px}
@@ -269,7 +269,7 @@
             .forecast-release{font-size:11px;padding:0 6px 4px}
             #forecastMask .modal-close{margin-top:6px;padding:3px;width:100%;font-size:12px}
 
-            /* 实况区域尺寸 */
+            /* 实况区域缩小 */
             .station-title{font-size:20px;margin-bottom:15px;text-align:center}
             .weather-container{flex-direction:column;gap:12px;padding:12px;margin-bottom:20px;max-width:100%}
             .temp-num{font-size:46px}
@@ -278,12 +278,12 @@
             .data-list span{display:block;margin:0 auto;width:auto}
             .publishing-time{font-size:12px;padding:3px 6px;bottom:-3px}
 
-            /* 需求1：手机其它网站导航整体缩小 */
+            /* 手机其它网站缩小 */
             .func-title{font-size:15px;text-align:center;margin-bottom:10px}
             .func-links{grid-template-columns:1fr 1fr;gap:6px}
             .func-item a{padding:6px 4px;font-size:12px;border-width:0.3px}
 
-            /* 超小屏420px适配 */
+            /* 超小屏切换两列 */
             @media (max-width:420px) {
                 .forecast-week-wrap{grid-template-columns:repeat(2,1fr)}
                 .func-links{grid-template-columns:1fr}
@@ -303,7 +303,7 @@
             <div class="tip-btn" id="openTip">天气提示</div>
         </div>
     </div>
-    <!-- 天气提示弹窗（手机自动贴合文字） -->
+    <!-- 天气提示弹窗 -->
     <div class="modal-mask" id="tipMask">
         <div class="modal-box">
             预计未来两天有大雨到暴雨，并伴有雷电和短时大风。
@@ -404,7 +404,7 @@
         <div class="publishing-time">发布时间 06-26 15:15</div>
         <div class="divider"></div>
     </div>
-    <!-- 底部网站导航（手机缩小） -->
+    <!-- 底部网站导航 -->
     <div class="func-title">其它网站</div>
     <div class="func-links">
         <div class="func-item"><a href="#">台风风险指数（开发中）</a></div>
