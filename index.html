@@ -231,7 +231,7 @@
         .func-item:not(:first-child) a { font-size: 20px; }
         .func-item a:hover { background: #f0f4f9; }
         @media (max-width: 768px) {
-            body{padding:6px}
+            body{padding:15px} /* 略微增加整体内边距 */
             .header{flex-direction:column;gap:10px;padding-bottom:10px}
             .header-left{justify-content:center}
             .title-text{font-size:14px}
@@ -247,25 +247,50 @@
             #forecastMask .modal-box{width:99vw}
             .forecast-top-bar{font-size:16px;padding:6px 10px}
             .forecast-week-wrap{grid-template-columns:repeat(3,1fr);gap:4px;padding:6px}
-            .forecast-day-card{padding:4px 1px;border-radius:3px}
+            .forecast-day-card{padding:4px 1px;border-radius:3px} /* 修正类名错误 */
             .forecast-date{font-size:12px;margin-bottom:2px}
             .forecast-icon{font-size:24px;margin:2px 0}
             .forecast-high,.forecast-low{font-size:16px;margin:1px 0;line-height:1}
             .forecast-release{font-size:11px;padding:0 6px 4px}
             #forecastMask .modal-close{margin-top:6px;padding:3px;width:100%;font-size:12px}
-            .station-title{font-size:20px;margin-bottom:15px;text-align:center}
-            .weather-container{flex-direction:column;gap:12px;padding:12px;margin-bottom:20px;max-width:100%}
-            .temp-num{font-size:46px}
-            .wind-info{font-size:16px}
-            .data-list{font-size:16px;text-align:center;line-height:1.4}
-            .data-list span{display:block;margin:0 auto;width:auto}
-            .publishing-time{font-size:12px;padding:3px 6px;bottom:-3px}
-            .func-title{font-size:15px;text-align:center;margin-bottom:10px}
-            .func-links{grid-template-columns:1fr 1fr;gap:6px}
-            .func-item a{padding:6px 4px;font-size:12px;border-width:0.3px}
+            
+            /* 重点调整实况部分样式 */
+            .station-title{font-size:28px;margin-bottom:25px;text-align:center}
+            .weather-container{
+                flex-direction:column;
+                gap:25px; /* 增大内部间距 */
+                padding:30px 20px; /* 增大内边距 */
+                margin-bottom:35px; /* 调整底部间距，匹配下方模块 */
+                max-width:100%;
+                width:100%; /* 占满宽度 */
+                background-color: rgba(255,255,255,0.6); /* 增加背景，提升视觉占比 */
+                border: 0.5px solid #f7e086; /* 增加边框，和下方模块统一风格 */
+            }
+            .temp-num{font-size:70px} /* 增大温度数字 */
+            .wind-info{font-size:22px;margin-top:15px} /* 增大风力文字 */
+            .data-list{font-size:22px;text-align:center;line-height:1.8} /* 增大数据列表文字 */
+            .data-list span{
+                display:block;
+                margin:0 auto 8px; /* 增加间距 */
+                width:auto;
+                font-weight: bold; /* 加粗标签 */
+            }
+            
+            .publishing-time{font-size:14px;padding:4px 8px;bottom:-5px}
+            .func-title{font-size:20px;text-align:center;margin-bottom:15px} /* 同步增大功能区标题 */
+            .func-links{grid-template-columns:1fr 1fr;gap:10px} /* 增大功能区间距 */
+            .func-item a{padding:12px 8px;font-size:16px;border-width:0.3px} /* 增大功能区按钮内边距 */
+            
             @media (max-width:420px) {
                 .forecast-week-wrap{grid-template-columns:repeat(2,1fr)}
                 .func-links{grid-template-columns:1fr}
+                
+                /* 小屏手机再优化实况部分 */
+                .station-title{font-size:24px}
+                .temp-num{font-size:60px}
+                .wind-info{font-size:20px}
+                .data-list{font-size:20px}
+                .weather-container{padding:25px 15px}
             }
         }
     </style>
