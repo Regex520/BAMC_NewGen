@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宝安中学气象社 BAMC</title>
+    <title id="pageTitle">宝安中学气象社 BAMC</title>
     <style>
         * {
             margin: 0;
@@ -292,8 +292,8 @@
 <body>
     <div class="header">
         <div class="header-left">
-            <img class="logo" src="logo.png" alt="宝安中学气象社logo">
-            <div class="title-text">宝安中学气象社 BAMC</div>
+            <img class="logo" id="logoImg" src="logo.png" alt="宝安中学气象社logo">
+            <div class="title-text" id="headerTitle">宝安中学气象社 BAMC</div>
         </div>
         <div class="header-buttons">
             <div class="tip-btn" id="openForecast">天气预报</div>
@@ -301,7 +301,7 @@
         </div>
     </div>
     <div class="modal-mask" id="tipMask">
-        <div class="modal-box">
+        <div class="modal-box" id="tipContent">
             预计未来两天有大雨到暴雨，并伴有雷电和短时大风。
             <br><br>
             点击下方按钮或空白区域可关闭。
@@ -311,107 +311,103 @@
     </div>
     <div class="modal-mask" id="forecastMask">
         <div class="modal-box">
-            <div class="forecast-top-bar">深圳市7天天气预报</div>
-            <div class="forecast-week-wrap">
-                <div class="forecast-day-card">
-                    <div class="forecast-date">6月27日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">多云间阴天，有大雨到暴雨</div>
-                    </div>
-                    <div class="forecast-high">31℃</div>
-                    <div class="forecast-low">26℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">6月28日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">多云间阴天，有大雨到暴雨</div>
-                    </div>
-                    <div class="forecast-high">31℃</div>
-                    <div class="forecast-low">26℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">6月29日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌩️</div>
-                        <div class="forecast-tip">多云，有雷阵雨</div>
-                    </div>
-                    <div class="forecast-high">32℃</div>
-                    <div class="forecast-low">27℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">6月30日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌤️</div>
-                        <div class="forecast-tip">多云间晴，局部有短时（雷）阵雨</div>
-                    </div>
-                    <div class="forecast-high">32℃</div>
-                    <div class="forecast-low">28℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">7月1日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌤️</div>
-                        <div class="forecast-tip">多云间晴，局部有短时（雷）阵雨</div>
-                    </div>
-                    <div class="forecast-high">33℃</div>
-                    <div class="forecast-low">28℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">7月2日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌤️</div>
-                        <div class="forecast-tip">多云间晴，局部有短时（雷）阵雨</div>
-                    </div>
-                    <div class="forecast-high">33℃</div>
-                    <div class="forecast-low">28℃</div>
-                </div>
-                <div class="forecast-day-card">
-                    <div class="forecast-date">7月3日</div>
-                    <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌩️</div>
-                        <div class="forecast-tip">多云，有（雷）阵雨</div>
-                    </div>
-                    <div class="forecast-high">32℃</div>
-                    <div class="forecast-low">28℃</div>
-                </div>
+            <div class="forecast-top-bar" id="forecastTitle">深圳市7天天气预报</div>
+            <div class="forecast-week-wrap" id="forecastDaysWrap">
+                <!-- 天气预报天数卡片由JS动态生成 -->
             </div>
-            <div class="forecast-release">2026-06-26 15:15</div>
+            <div class="forecast-release" id="forecastReleaseTime">2026-06-26 15:15</div>
             <button class="modal-close" id="closeForecast">关闭预报</button>
         </div>
     </div>
-    <div class="station-title">宝安中学实况</div>
+    <div class="station-title" id="stationTitle">宝安中学实况</div>
     <div class="weather-container">
         <div class="temp-block">
-            <div class="temp-num">27.9℃</div>
-            <div class="wind-info">偏南风 1 级</div>
+            <div class="temp-num" id="realtimeTemp">27.9℃</div>
+            <div class="wind-info" id="realtimeWind">偏南风 1 级</div>
         </div>
         <div class="data-list">
-            <div><span>相对湿度</span> 86%</div>
-            <div><span>时雨量</span> 0mm</div>
-            <div><span>日雨量</span> 18mm</div>
+            <div><span>相对湿度</span> <span id="realtimeHumidity">86%</span></div>
+            <div><span>时雨量</span> <span id="realtimeHourlyRain">0mm</span></div>
+            <div><span>日雨量</span> <span id="realtimeDailyRain">18mm</span></div>
         </div>
     </div>
     <div class="divider-wrap">
-        <div class="publishing-time">发布时间 06-26 15:15</div>
+        <div class="publishing-time" id="realtimePublishTime">发布时间 06-26 15:15</div>
         <div class="divider"></div>
     </div>
-    <div class="func-title">其它网站</div>
-    <div class="func-links">
-        <div class="func-item"><a href="#">台风风险指数（开发中）</a></div>
-        <div class="func-item"><a href="https://www.nmc.cn">中央气象台</a></div>
-        <div class="func-item"><a href="https://www.smca.fun">菜园子的气象栈</a></div>
-        <div class="func-item"><a href="https://weather.sz.gov.cn">深圳市气象局（台）</a></div>
-        <div class="func-item"><a href="https://weibo.com/u/8013139496">气象社微博</a></div>
+    <div class="func-title" id="funcLinksTitle">其它网站</div>
+    <div class="func-links" id="funcLinksWrap">
+        <!-- 功能链接由JS动态生成 -->
     </div>
+
 <script>
+    // 加载JSON数据并渲染页面
+    fetch('weather-data.json')
+        .then(response => response.json())
+        .then(data => {
+            // 1. 渲染站点基础信息
+            document.getElementById('pageTitle').textContent = data.siteInfo.title;
+            document.getElementById('logoImg').src = data.siteInfo.logoSrc;
+            document.body.style.backgroundImage = `url("${data.siteInfo.bgSrc}")`;
+            document.getElementById('headerTitle').textContent = data.siteInfo.title;
+
+            // 2. 渲染天气提示
+            document.getElementById('openTip').textContent = data.weatherTip.buttonText;
+            document.getElementById('tipContent').innerHTML = `${data.weatherTip.content}<br><button class="modal-close" id="closeTip">${data.weatherTip.closeButtonText}</button>`;
+            document.getElementById('closeTip').onclick = () => tipMask.style.display = 'none';
+
+            // 3. 渲染天气预报
+            document.getElementById('openForecast').textContent = data.forecast.buttonText;
+            document.getElementById('forecastTitle').textContent = data.forecast.title;
+            document.getElementById('forecastReleaseTime').textContent = data.forecast.releaseTime;
+            document.getElementById('closeForecast').textContent = data.forecast.closeButtonText;
+            
+            // 生成7天预报卡片
+            const forecastWrap = document.getElementById('forecastDaysWrap');
+            forecastWrap.innerHTML = '';
+            data.forecast.days.forEach(day => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'forecast-day-card';
+                dayCard.innerHTML = `
+                    <div class="forecast-date">${day.date}</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">${day.icon}</div>
+                        <div class="forecast-tip">${day.tip}</div>
+                    </div>
+                    <div class="forecast-high">${day.highTemp}</div>
+                    <div class="forecast-low">${day.lowTemp}</div>
+                `;
+                forecastWrap.appendChild(dayCard);
+            });
+
+            // 4. 渲染实况数据
+            document.getElementById('stationTitle').textContent = data.realtimeData.stationTitle;
+            document.getElementById('realtimeTemp').textContent = data.realtimeData.temperature;
+            document.getElementById('realtimeWind').textContent = data.realtimeData.wind;
+            document.getElementById('realtimeHumidity').textContent = data.realtimeData.humidity;
+            document.getElementById('realtimeHourlyRain').textContent = data.realtimeData.hourlyRain;
+            document.getElementById('realtimeDailyRain').textContent = data.realtimeData.dailyRain;
+            document.getElementById('realtimePublishTime').textContent = data.realtimeData.publishTime;
+
+            // 5. 渲染功能链接
+            document.getElementById('funcLinksTitle').textContent = data.functionLinks.title;
+            const funcLinksWrap = document.getElementById('funcLinksWrap');
+            funcLinksWrap.innerHTML = '';
+            data.functionLinks.links.forEach(link => {
+                const linkItem = document.createElement('div');
+                linkItem.className = 'func-item';
+                linkItem.innerHTML = `<a href="${link.url}">${link.text}</a>`;
+                funcLinksWrap.appendChild(linkItem);
+            });
+        })
+        .catch(error => console.error('加载JSON数据失败:', error));
+
+    // 模态框基础交互
     const openTip = document.getElementById('openTip');
     const tipMask = document.getElementById('tipMask');
-    const closeTip = document.getElementById('closeTip');
     openTip.onclick = () => tipMask.style.display = 'flex';
-    closeTip.onclick = () => tipMask.style.display = 'none';
     tipMask.onclick = (e) => { if(e.target === tipMask) tipMask.style.display = 'none' };
+
     const openForecast = document.getElementById('openForecast');
     const forecastMask = document.getElementById('forecastMask');
     const closeForecast = document.getElementById('closeForecast');
