@@ -76,7 +76,7 @@
             z-index: 99;
             align-items: center;
             justify-content: center;
-            padding: 8px;
+            padding: 20px;
             overflow-y: auto;
         }
         #tipMask .modal-box {
@@ -89,9 +89,10 @@
             line-height: 1.8;
         }
         #forecastMask .modal-box {
-            width: 98vw;
+            width: 85vw;
+            min-height: 40vh;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
         }
         .modal-close {
@@ -238,28 +239,28 @@
         .func-item:not(:first-child) a { font-size: 20px; }
         .func-item a:hover { background: #f0f4f9; }
 
-        /* 移动端仅修改天气预报弹窗，其余页面全部保持原样 */
+        /* 移动端仅修改天气预报弹窗，页面其余全部保持原版尺寸不变 */
         @media (max-width: 768px) {
-            /* 仅预报弹窗尺寸压缩，其他页面元素完全不变 */
-            #forecastMask .modal-box{width:99vw}
-            .forecast-top-bar{font-size:17px;padding:8px 12px}
-            .forecast-week-wrap{grid-template-columns:repeat(3,1fr);gap:6px;padding:8px}
-            .forecast-day-card{padding:6px 2px;border-radius:4px}
-            .forecast-date{font-size:13px;margin-bottom:3px}
-            .forecast-icon{font-size:28px;margin:3px 0}
-            .forecast-high,.forecast-low{font-size:18px;margin:2px 0;line-height:1}
-            .forecast-release{font-size:12px;padding:0 8px 6px}
-            #forecastMask .modal-close{margin-top:8px;padding:4px;width:100%;font-size:13px}
+            /* 仅修改预报弹窗，头部/实况/底部/提示弹窗完全不改动 */
+            #forecastMask .modal-box { width: 99vw; }
+            .forecast-top-bar { font-size: 17px; padding: 8px 12px; }
+            .forecast-week-wrap { grid-template-columns: repeat(3,1fr); gap:6px; padding:8px; }
+            .forecast-day-card { padding:6px 2px; border-radius:4px; }
+            .forecast-date { font-size:13px; margin-bottom:3px; }
+            .forecast-icon { font-size:28px; margin:3px 0; }
+            .forecast-high,.forecast-low { font-size:18px; margin:2px 0; line-height:1; }
+            .forecast-release { font-size:12px; padding:0 8px 6px; }
+            #forecastMask .modal-close { margin-top:8px; padding:4px; width:100%; font-size:13px; }
 
-            /* 超小屏预报改为2列，不影响页面其他模块 */
-            @media (max-width:420px){
-                .forecast-week-wrap{grid-template-columns:repeat(2,1fr)}
+            /* 超窄手机切换2列，依然不影响页面其他内容 */
+            @media (max-width:420px) {
+                .forecast-week-wrap { grid-template-columns: repeat(2,1fr); }
             }
         }
     </style>
 </head>
 <body>
-    <!-- 头部按钮栏 -->
+    <!-- 头部按钮栏（原版尺寸不变） -->
     <div class="header">
         <div class="header-left">
             <img class="logo" src="logo.png" alt="宝安中学气象社logo">
@@ -270,7 +271,7 @@
             <div class="tip-btn" id="openTip">天气提示</div>
         </div>
     </div>
-    <!-- 天气提示弹窗（完全保留原始大小，无任何缩放） -->
+    <!-- 天气提示弹窗（完全原版，无任何缩小） -->
     <div class="modal-mask" id="tipMask">
         <div class="modal-box">
             预计未来两天有大雨到暴雨，并伴有雷电和短时大风。
@@ -280,7 +281,7 @@
             <button class="modal-close" id="closeTip">关闭提示</button>
         </div>
     </div>
-    <!-- 天气预报弹窗（仅此处手机端缩小） -->
+    <!-- 天气预报弹窗（仅这里手机端缩小，3列极小卡片） -->
     <div class="modal-mask" id="forecastMask">
         <div class="modal-box">
             <div class="forecast-top-bar">深圳市7天天气预报</div>
@@ -353,7 +354,7 @@
             <button class="modal-close" id="closeForecast">关闭预报</button>
         </div>
     </div>
-    <!-- 中部实况标题与气象数据（完全原始尺寸） -->
+    <!-- 中部实况（完全原版尺寸） -->
     <div class="station-title">宝安中学实况</div>
     <div class="weather-container">
         <div class="temp-block">
@@ -366,12 +367,12 @@
             <div><span>日雨量</span> 18mm</div>
         </div>
     </div>
-    <!-- 分割线与发布时间 -->
+    <!-- 分割线与发布时间（原版） -->
     <div class="divider-wrap">
         <div class="publishing-time">发布时间 06-26 15:15</div>
         <div class="divider"></div>
     </div>
-    <!-- 底部网站导航（原样不变） -->
+    <!-- 底部导航（原版尺寸不变） -->
     <div class="func-title">其它网站</div>
     <div class="func-links">
         <div class="func-item"><a href="#">台风风险指数（开发中）</a></div>
@@ -381,7 +382,7 @@
         <div class="func-item"><a href="https://weibo.com/u/8013139496">气象社微博</a></div>
     </div>
 <script>
-    // 弹窗交互
+    // 弹窗交互逻辑不变
     const openTip = document.getElementById('openTip');
     const tipMask = document.getElementById('tipMask');
     const closeTip = document.getElementById('closeTip');
