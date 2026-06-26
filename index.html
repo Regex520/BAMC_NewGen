@@ -118,9 +118,9 @@
         }
         .forecast-day-card {
             background-color: #cce0ff;
-            border-radius: 8px;
+            border-radius: 6px;
             text-align: center;
-            padding: 20px 8px;
+            padding: 12px 6px;
             position: relative;
         }
         .forecast-date { font-size: 28px; margin-bottom: 16px; }
@@ -239,45 +239,42 @@
         .func-item:not(:first-child) a { font-size: 20px; }
         .func-item a:hover { background: #f0f4f9; }
 
-        /* 移动端适配（合并+精简） */
+        /* 全新精简手机适配：预报双列布局，大幅压缩高度 */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            /* 头部 */
-            .header { flex-direction: column; gap: 20px; padding-bottom: 20px; }
-            .header-left { justify-content: center; }
-            .title-text { font-size: 16px; }
-            .tip-btn { padding: 8px 20px; font-size: 16px; }
-            /* 弹窗 */
-            #tipMask .modal-box { width: 90vw; padding: 20px; font-size: 18px; line-height: 1.6; }
-            #forecastMask .modal-box { width: 95vw; }
-            .forecast-top-bar { font-size: 24px; padding: 15px 20px; }
-            .forecast-week-wrap { grid-template-columns: repeat(1, 1fr); gap: 15px; padding: 15px; }
-            .forecast-day-card { padding: 15px 8px; }
-            .forecast-date { font-size: 24px; margin-bottom: 10px; }
-            .forecast-icon { font-size: 48px; }
-            .forecast-high, .forecast-low { font-size: 28px; }
-            .forecast-release { padding: 0 20px 15px; font-size: 18px; }
-            .modal-close { margin-top: 20px; padding: 6px 20px; font-size: 16px; width: 100%; }
-            /* 实况数据 */
-            .station-title { font-size: 28px; margin-bottom: 30px; text-align: center; }
-            .weather-container { flex-direction: column; gap: 30px; padding: 20px 30px; margin-bottom: 50px; max-width: 100%; }
-            .temp-num { font-size: 70px; }
-            .wind-info { font-size: 22px; }
-            .data-list { font-size: 24px; line-height: 2; text-align: center; }
-            .data-list span { width: 120px; display: block; margin: 0 auto; }
+            body{padding:8px}
+            .header{flex-direction:column;gap:12px;padding-bottom:12px}
+            .header-left{justify-content:center}
+            .title-text{font-size:15px}
+            .tip-btn{padding:6px 14px;font-size:14px}
+            /* 弹窗基础适配 */
+            #tipMask .modal-box{width:92vw;padding:20px;font-size:18px;line-height:1.6}
+            #forecastMask .modal-box{width:96vw}
+            .forecast-top-bar{font-size:20px;padding:10px 16px}
+            /* 核心改动：手机双列7天预报 */
+            .forecast-week-wrap{grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+            .forecast-day-card{padding:10px 4px}
+            .forecast-date{font-size:16px;margin-bottom:6px}
+            .forecast-icon{font-size:36px;margin:6px 0}
+            .forecast-high,.forecast-low{font-size:22px;margin:4px 0}
+            .forecast-release{font-size:14px;padding:0 12px 10px}
+            .modal-close{margin-top:15px;padding:6px;width:100%;font-size:14px}
+            /* 实况数据压缩 */
+            .station-title{font-size:24px;margin-bottom:20px;text-align:center}
+            .weather-container{flex-direction:column;gap:20px;padding:16px;margin-bottom:30px;max-width:100%}
+            .temp-num{font-size:56px}
+            .wind-info{font-size:20px}
+            .data-list{font-size:18px;text-align:center;line-height:1.6}
+            .data-list span{display:block;margin:0 auto;width:auto}
             /* 发布时间 */
-            .publishing-time { font-size: 16px; padding: 4px 10px; bottom: -5px; }
-            /* 底部导航 */
-            .func-title { font-size: 20px; text-align: center; margin-bottom: 20px; }
-            .func-links { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .func-item:first-child a { font-size: 14px; }
-            .func-item:not(:first-child) a { font-size: 16px; }
-            .func-item a { padding: 12px 8px; }
-            /* 超小屏适配（合并到768媒体查询内） */
-            @media (max-width: 480px) {
-                .temp-num { font-size: 60px; }
-                .data-list { font-size: 20px; }
-                .func-links { grid-template-columns: repeat(1, 1fr); }
+            .publishing-time{font-size:14px;padding:4px 8px;bottom:-4px}
+            /* 底部导航双列 */
+            .func-title{font-size:18px;text-align:center;margin-bottom:15px}
+            .func-links{grid-template-columns:1fr 1fr;gap:10px}
+            .func-item a{padding:10px;font-size:14px}
+            /* 超小屏切换单列 */
+            @media (max-width:420px){
+                .forecast-week-wrap{grid-template-columns:1fr}
+                .func-links{grid-template-columns:1fr}
             }
         }
     </style>
@@ -406,14 +403,13 @@
     </div>
 <script>
     // 弹窗交互
-    // 天气提示弹窗
     const openTip = document.getElementById('openTip');
     const tipMask = document.getElementById('tipMask');
     const closeTip = document.getElementById('closeTip');
     openTip.onclick = () => tipMask.style.display = 'flex';
     closeTip.onclick = () => tipMask.style.display = 'none';
     tipMask.onclick = (e) => { if(e.target === tipMask) tipMask.style.display = 'none' };
-    // 天气预报弹窗
+
     const openForecast = document.getElementById('openForecast');
     const forecastMask = document.getElementById('forecastMask');
     const closeForecast = document.getElementById('closeForecast');
