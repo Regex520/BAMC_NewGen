@@ -79,7 +79,7 @@
         }
         #tipMask .modal-box {
             width: 50vw;
-            min-height: 40vh;
+            min-height: auto;
             background: #fff;
             padding: 40px;
             border-radius: 12px;
@@ -301,13 +301,9 @@
             <div class="tip-btn" id="openTip">天气提示</div>
         </div>
     </div>
-    <div class="modal-mask" id="tipMask">
-        <div class="modal-box">
-            受加强的副热带高压影响，未来几日天气重新趋于炎热，最高温度可达34℃左右。预计下周后期可能受热带气旋外围环流影响，有骤雨及雷暴，南风增强并伴有阵风。
-            <br><br>
-            点击下方按钮或空白区域可关闭。
-            <br>
-            <button class="modal-close" id="closeTip">关闭提示</button>
+        <div class="modal-mask" id="tipMask">
+             <div class="modal-box">
+                 <!-- 由 JS 从 JSON 加载 -->
         </div>
     </div>
     <div class="modal-mask" id="forecastMask">
@@ -315,87 +311,87 @@
             <div class="forecast-top-bar">深圳市7天天气预报</div>
             <div class="forecast-week-wrap">
                 <div class="forecast-day-card">
-                    <div class="forecast-date">6月30日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌤️</div>
-                        <div class="forecast-tip">多云间晴，局地有（雷）阵雨</div>
+                        <div class="forecast-icon">❓</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">33℃</div>
-                    <div class="forecast-low">27℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月1日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">☀️</div>
-                        <div class="forecast-tip">晴到多云，局地有短时（雷）阵雨</div>
+                        <div class="forecast-icon">❓</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">33℃</div>
-                    <div class="forecast-low">27℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月2日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">☀️</div>
-                        <div class="forecast-tip">晴到多云，局地有短时（雷）阵雨</div>
+                        <div class="forecast-icon">❓</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">34℃</div>
-                    <div class="forecast-low">28℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月3日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">🌦️</div>
-                        <div class="forecast-tip">多云，有阳光，有（雷）阵雨</div>
+                        <div class="forecast-icon">❓</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">32℃</div>
-                    <div class="forecast-low">27℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月4日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                        <div class="forecast-icon">❓</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">30℃</div>
-                    <div class="forecast-low">26℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月5日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                        <div class="forecast-icon">❓️</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">29℃</div>
-                    <div class="forecast-low">25℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
                 <div class="forecast-day-card">
-                    <div class="forecast-date">7月6日</div>
+                    <div class="forecast-date">--月--日</div>
                     <div class="forecast-icon-box">
-                        <div class="forecast-icon">⛈️</div>
-                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                        <div class="forecast-icon">❓️</div>
+                        <div class="forecast-tip">加载中...</div>
                     </div>
-                    <div class="forecast-high">29℃</div>
-                    <div class="forecast-low">25℃</div>
+                    <div class="forecast-high">--℃</div>
+                    <div class="forecast-low">--℃</div>
                 </div>
             </div>
-            <div class="forecast-release">2026-06-29 16:00 发布</div>
+            <div class="forecast-release">加载中...</div>
             <button class="modal-close" id="closeForecast">关闭预报</button>
         </div>
     </div>
     <div class="station-title">宝安中学实况</div>
     <div class="weather-container">
-        <div class="temp-block">
-            <div class="temp-num">31.6℃</div>
-            <div class="wind-info">东南偏东风 1 级</div>
-        </div>
-        <div class="data-list">
-            <div><span>相对湿度</span> 69%</div>
-            <div><span>时雨量</span> 0mm</div>
-            <div><span>日雨量</span> 1.6mm</div>
-        </div>
+    <div class="temp-block">
+        <div class="temp-num">--℃</div>
+        <div class="wind-info">--</div>
     </div>
+    <div class="data-list">
+        <div><span>相对湿度</span> --</div>
+        <div><span>时雨量</span> --</div>
+        <div><span>日雨量</span> --</div>
+    </div>
+</div>
     <div class="divider-wrap">
-        <div class="publishing-time">发布时间 06-29 16:29</div>
+        <div class="publishing-time">加载中...</div>
         <div class="divider"></div>
     </div>
     <div class="func-title">其它网站</div>
@@ -419,6 +415,69 @@
     openForecast.onclick = () => forecastMask.style.display = 'flex';
     closeForecast.onclick = () => forecastMask.style.display = 'none';
     forecastMask.onclick = (e) => { if(e.target === forecastMask) forecastMask.style.display = 'none' };
+    // ========================================
+// 从 weather-data.json 加载数据并渲染
+// ========================================
+
+fetch('weather-data.json')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log('✅ 天气数据加载成功', data);
+
+        // ----- 1. 实况数据 -----
+        document.querySelector('.temp-num').textContent = data.realtimeData.temperature;
+        document.querySelector('.wind-info').textContent = data.realtimeData.wind;
+
+        var items = document.querySelectorAll('.data-list div');
+        items[0].innerHTML = '<span>相对湿度</span> ' + data.realtimeData.humidity;
+        items[1].innerHTML = '<span>时雨量</span> ' + data.realtimeData.hourlyRain;
+        items[2].innerHTML = '<span>日雨量</span> ' + data.realtimeData.dailyRain;
+
+        document.querySelector('.publishing-time').textContent = data.realtimeData.publishTime;
+
+        // ----- 2. 7天预报 -----
+        var cards = document.querySelectorAll('.forecast-day-card');
+        for (var i = 0; i < data.forecast.days.length; i++) {
+            if (cards[i]) {
+                cards[i].querySelector('.forecast-date').textContent = data.forecast.days[i].date;
+                cards[i].querySelector('.forecast-icon').textContent = data.forecast.days[i].icon;
+                cards[i].querySelector('.forecast-tip').textContent = data.forecast.days[i].tip;
+                cards[i].querySelector('.forecast-high').textContent = data.forecast.days[i].highTemp;
+                cards[i].querySelector('.forecast-low').textContent = data.forecast.days[i].lowTemp;
+            }
+        }
+
+        document.querySelector('.forecast-release').textContent = data.forecast.releaseTime;
+
+        // ----- 3. 天气提示弹窗 -----
+        var tipBox = document.querySelector('#tipMask .modal-box');
+        tipBox.innerHTML = data.weatherTip.content +
+            '<br><button class="modal-close" id="closeTip">' + data.weatherTip.closeButtonText + '</button>';
+
+        // 重新绑定关闭事件
+        document.getElementById('closeTip').onclick = function() {
+            document.getElementById('tipMask').style.display = 'none';
+        };
+
+        // ----- 4. 功能链接 -----
+        var linksContainer = document.querySelector('.func-links');
+        linksContainer.innerHTML = '';
+        for (var j = 0; j < data.functionLinks.links.length; j++) {
+            var link = data.functionLinks.links[j];
+            var div = document.createElement('div');
+            div.className = 'func-item';
+            div.innerHTML = '<a href="' + link.url + '">' + link.text + '</a>';
+            linksContainer.appendChild(div);
+        }
+    })
+    .catch(function(error) {
+        console.error('❌ 加载天气数据失败：', error);
+        // 如果加载失败，显示提示信息
+        document.querySelector('.temp-num').textContent = '⚠️';
+        document.querySelector('.publishing-time').textContent = '数据加载失败，请刷新重试';
+    });
 </script>
 </body>
 </html>
