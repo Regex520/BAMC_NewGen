@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝安中学气象社 BAMC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: rgba(255,255,255,0.75);
+            background-blend-mode: lighten;
+            color: #000;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #ffffff;
+            margin-bottom: 30px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .title-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0044cc;
+        }
+        .tip-btn {
+            padding: 10px 26px;
+            border: 2px solid #000;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.8);
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tip-btn:hover { background: #e8f0ff; }
+        .modal-mask {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            z-index: 99;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            overflow-y: auto;
+        }
+        #tipMask .modal-box {
+            width: 50vw;
+            min-height: 40vh;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        #forecastMask .modal-box {
+            width: 85vw;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .modal-close {
+            margin-top: 30px;
+            padding: 8px 24px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .forecast-top-bar {
+            background-color: #2277dd;
+            color: white;
+            font-size: 36px;
+            padding: 20px 30px;
+            font-weight: bold;
+        }
+        .forecast-week-wrap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background: #fff;
+        }
+        .forecast-day-card {
+            background-color: #cce0ff;
+            border-radius: 6px;
+            text-align: center;
+            padding: 12px 6px;
+            position: relative;
+        }
+        .forecast-date { font-size: 28px; margin-bottom: 16px; }
+        .forecast-icon-box {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .forecast-icon { font-size: 60px; margin: 12px 0; }
+        .forecast-tip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+        .forecast-icon-box:hover .forecast-tip { visibility: visible; opacity: 1; }
+        .forecast-high {
+            font-size: 36px;
+            color: #ff7700;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+        .forecast-low {
+            font-size: 36px;
+            color: #0055cc;
+            font-weight: bold;
+        }
+        .forecast-release {
+            padding: 0 30px;
+            font-size: 22px;
+            color: #555;
+        }
+        .station-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 60px;
+        }
+        .weather-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 60px;
+            margin-bottom: 100px;
+            border: 2px solid transparent;
+            border-radius: 9999px;
+            padding: 40px 60px;
+            background-color: transparent;
+            max-width: fit-content;
+        }
+        .temp-block { text-align: center; }
+        .temp-num { font-size: 90px; font-weight: bold; }
+        .wind-info {
+            font-size: 28px;
+            margin-top: 12px;
+            font-family: "KaiTi", "楷体", serif;
+        }
+        .data-list { font-size: 30px; line-height: 2.2; }
+        .data-list span, .data-list div {
+            font-family: "KaiTi", "楷体", serif;
+            color: #555;
+        }
+        .data-list span {
+            display: inline-block;
+            width: 140px;
+        }
+        .divider-wrap { position: relative; margin: 20px 0; }
+        .divider { border-bottom: 2px solid #ffffff; }
+        .publishing-time {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0044cc;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.75);
+            border-radius: 6px;
+        }
+        .func-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: #0044cc;
+        }
+        .func-links {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .func-item a {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            padding: 16px 8px;
+            border: 0.5px solid #f7e086;
+            border-radius: 9999px;
+            text-decoration: none;
+            color: #000;
+            transition: 0.2s;
+            background-color: rgba(255,255,255,0.8);
+        }
+        .func-item:first-child a { font-size: 18px; }
+        .func-item:not(:first-child) a { font-size: 20px; }
+        .func-item a:hover { background: #f0f4f9; }
+        @media (max-width: 768px) {
+            body{padding:15px}
+            .header{flex-direction:column;gap:10px;padding-bottom:10px}
+            .header-left{justify-content:center}
+            .title-text{font-size:14px}
+            .tip-btn{padding:5px 12px;font-size:13px}
+            .modal-mask{padding:4px}
+            #tipMask .modal-box{
+                width:94vw;
+                min-height:auto;
+                padding:14px;
+                font-size:16px;
+                line-height:1.4;
+            }
+            #forecastMask .modal-box{width:99vw}
+            .forecast-top-bar{font-size:16px;padding:6px 10px}
+            .forecast-week-wrap{grid-template-columns:repeat(3,1fr);gap:4px;padding:6px}
+            .forecast-day-card{padding:4px 1px;border-radius:3px}
+            .forecast-date{font-size:12px;margin-bottom:2px}
+            .forecast-icon{font-size:24px;margin:2px 0}
+            .forecast-high,.forecast-low{font-size:16px;margin:1px 0;line-height:1}
+            .forecast-release{font-size:11px;padding:0 6px 4px}
+            #forecastMask .modal-close{margin-top:6px;padding:3px;width:100%;font-size:12px}
+            .station-title{font-size:28px;margin-bottom:25px;text-align:center}
+            .weather-container{
+                flex-direction:column;
+                gap:25px;
+                padding:30px 20px;
+                margin-bottom:35px;
+                max-width:100%;
+                width:100%;
+                background-color: transparent;
+                border: none;
+            }
+            .temp-num{font-size:70px}
+            .wind-info{font-size:22px;margin-top:15px}
+            .data-list{font-size:22px;text-align:center;line-height:1.8}
+            .data-list span{
+                display:block;
+                margin:0 auto 8px;
+                width:auto;
+                font-weight: bold;
+            }
+            .publishing-time{font-size:14px;padding:4px 8px;bottom:-5px}
+            .func-title{font-size:20px;text-align:center;margin-bottom:15px}
+            .func-links{grid-template-columns:1fr 1fr;gap:10px}
+            .func-item a{padding:12px 8px;font-size:16px;border-width:0.3px}
+            @media (max-width:420px) {
+                .forecast-week-wrap{grid-template-columns:repeat(2,1fr)}
+                .func-links{grid-template-columns:1fr}
+                .station-title{font-size:24px}
+                .temp-num{font-size:60px}
+                .wind-info{font-size:20px}
+                .data-list{font-size:20px}
+                .weather-container{padding:25px 15px}
+            }
+        }
+    </style>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img class="logo" src="logo.png" alt="宝安中学气象社logo">
+            <div class="title-text">宝安中学气象社 BAMC</div>
+        </div>
+        <div class="header-buttons">
+            <div class="tip-btn" id="openForecast">天气预报</div>
+            <div class="tip-btn" id="openTip">天气提示</div>
+        </div>
+    </div>
+    <div class="modal-mask" id="tipMask">
+        <div class="modal-box">
+            受加强的副热带高压影响，未来几日天气重新趋于炎热，最高温度可达34℃左右。预计下周后期可能受热带气旋外围环流影响，有骤雨及雷暴，南风增强并伴有阵风。
+            <br><br>
+            点击下方按钮或空白区域可关闭。
+            <br>
+            <button class="modal-close" id="closeTip">关闭提示</button>
+        </div>
+    </div>
+    <div class="modal-mask" id="forecastMask">
+        <div class="modal-box">
+            <div class="forecast-top-bar">深圳市7天天气预报</div>
+            <div class="forecast-week-wrap">
+                <div class="forecast-day-card">
+                    <div class="forecast-date">6月30日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">🌤️</div>
+                        <div class="forecast-tip">多云间晴，局地有（雷）阵雨</div>
+                    </div>
+                    <div class="forecast-high">33℃</div>
+                    <div class="forecast-low">27℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月1日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-tip">晴到多云，局地有短时（雷）阵雨</div>
+                    </div>
+                    <div class="forecast-high">33℃</div>
+                    <div class="forecast-low">27℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月2日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-tip">晴到多云，局地有短时（雷）阵雨</div>
+                    </div>
+                    <div class="forecast-high">34℃</div>
+                    <div class="forecast-low">28℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月3日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">🌦️</div>
+                        <div class="forecast-tip">多云，有阳光，有（雷）阵雨</div>
+                    </div>
+                    <div class="forecast-high">32℃</div>
+                    <div class="forecast-low">27℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月4日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">⛈️</div>
+                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                    </div>
+                    <div class="forecast-high">30℃</div>
+                    <div class="forecast-low">26℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月5日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">⛈️</div>
+                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                    </div>
+                    <div class="forecast-high">29℃</div>
+                    <div class="forecast-low">25℃</div>
+                </div>
+                <div class="forecast-day-card">
+                    <div class="forecast-date">7月6日</div>
+                    <div class="forecast-icon-box">
+                        <div class="forecast-icon">⛈️</div>
+                        <div class="forecast-tip">阴天，有雷阵雨，雨势有时较大</div>
+                    </div>
+                    <div class="forecast-high">29℃</div>
+                    <div class="forecast-low">25℃</div>
+                </div>
+            </div>
+            <div class="forecast-release">2026-06-29 16:00 发布</div>
+            <button class="modal-close" id="closeForecast">关闭预报</button>
+        </div>
+    </div>
+    <div class="station-title">宝安中学实况</div>
+    <div class="weather-container">
+        <div class="temp-block">
+            <div class="temp-num">31.6℃</div>
+            <div class="wind-info">东南偏东风 1 级</div>
+        </div>
+        <div class="data-list">
+            <div><span>相对湿度</span> 69%</div>
+            <div><span>时雨量</span> 0mm</div>
+            <div><span>日雨量</span> 1.6mm</div>
+        </div>
+    </div>
+    <div class="divider-wrap">
+        <div class="publishing-time">发布时间 06-29 16:29</div>
+        <div class="divider"></div>
+    </div>
+    <div class="func-title">其它网站</div>
+    <div class="func-links">
+        <div class="func-item"><a href="#">台风风险指数（开发中）</a></div>
+        <div class="func-item"><a href="https://www.nmc.cn">中央气象台</a></div>
+        <div class="func-item"><a href="https://www.smca.fun">菜园子的气象栈</a></div>
+        <div class="func-item"><a href="https://weather.sz.gov.cn">深圳市气象局（台）</a></div>
+        <div class="func-item"><a href="https://weibo.com/u/8013139496">气象社微博</a></div>
+    </div>
+<script>
+    const openTip = document.getElementById('openTip');
+    const tipMask = document.getElementById('tipMask');
+    const closeTip = document.getElementById('closeTip');
+    openTip.onclick = () => tipMask.style.display = 'flex';
+    closeTip.onclick = () => tipMask.style.display = 'none';
+    tipMask.onclick = (e) => { if(e.target === tipMask) tipMask.style.display = 'none' };
+    const openForecast = document.getElementById('openForecast');
+    const forecastMask = document.getElementById('forecastMask');
+    const closeForecast = document.getElementById('closeForecast');
+    openForecast.onclick = () => forecastMask.style.display = 'flex';
+    closeForecast.onclick = () => forecastMask.style.display = 'none';
+    forecastMask.onclick = (e) => { if(e.target === forecastMask) forecastMask.style.display = 'none' };
+</script>
+</body>
+</html>
