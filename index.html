@@ -302,10 +302,11 @@
         </div>
     </div>
         <div class="modal-mask" id="tipMask">
-             <div class="modal-box">
-                 <!-- 由 JS 从 JSON 加载 -->
+            <div class="modal-box">
+                <div id="tipContent"></div>
+                <button class="modal-close" id="closeTip">关闭提示</button>
+            </div>
         </div>
-    </div>
     <div class="modal-mask" id="forecastMask">
         <div class="modal-box">
             <div class="forecast-top-bar">深圳市7天天气预报</div>
@@ -415,9 +416,6 @@
     openForecast.onclick = () => forecastMask.style.display = 'flex';
     closeForecast.onclick = () => forecastMask.style.display = 'none';
     forecastMask.onclick = (e) => { if(e.target === forecastMask) forecastMask.style.display = 'none' };
-    // ========================================
-// 从 weather-data.json 加载数据并渲染
-// ========================================
 
 fetch('weather-data.json')
     .then(function(response) {
@@ -426,7 +424,6 @@ fetch('weather-data.json')
     .then(function(data) {
         console.log('✅ 天气数据加载成功', data);
 
-        // ----- 1. 实况数据 -----
         document.querySelector('.temp-num').textContent = data.realtimeData.temperature;
         document.querySelector('.wind-info').textContent = data.realtimeData.wind;
 
@@ -437,7 +434,6 @@ fetch('weather-data.json')
 
         document.querySelector('.publishing-time').textContent = data.realtimeData.publishTime;
 
-        // ----- 2. 7天预报 -----
         var cards = document.querySelectorAll('.forecast-day-card');
         for (var i = 0; i < data.forecast.days.length; i++) {
             if (cards[i]) {
@@ -451,17 +447,8 @@ fetch('weather-data.json')
 
         document.querySelector('.forecast-release').textContent = data.forecast.releaseTime;
 
-        // ----- 3. 天气提示弹窗 -----
-        var tipBox = document.querySelector('#tipMask .modal-box');
-        tipBox.innerHTML = data.weatherTip.content +
-            '<br><button class="modal-close" id="closeTip">' + data.weatherTip.closeButtonText + '</button>';
+        document.getElementById('tipContent').innerHTML = data.weatherTip.content;
 
-        // 重新绑定关闭事件
-        document.getElementById('closeTip').onclick = function() {
-            document.getElementById('tipMask').style.display = 'none';
-        };
-
-        // ----- 4. 功能链接 -----
         var linksContainer = document.querySelector('.func-links');
         linksContainer.innerHTML = '';
         for (var j = 0; j < data.functionLinks.links.length; j++) {
@@ -474,7 +461,6 @@ fetch('weather-data.json')
     })
     .catch(function(error) {
         console.error('❌ 加载天气数据失败：', error);
-        // 如果加载失败，显示提示信息
         document.querySelector('.temp-num').textContent = '⚠️';
         document.querySelector('.publishing-time').textContent = '数据加载失败，请刷新重试';
     });
