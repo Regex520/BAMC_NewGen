@@ -79,8 +79,8 @@
     "title": "其它网站",
     "links": [
       {
-        "text": "台风风险指数（开发中）",
-        "url": "#"
+        "text": "深圳台风风险指数",
+        "url": "https://benjamin1207511-netizen.github.io/Shenzhen-Typhoon-Index/"
       },
       {
         "text": "中央气象台",
