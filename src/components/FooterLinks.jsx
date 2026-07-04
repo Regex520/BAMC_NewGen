@@ -26,8 +26,7 @@ export default function FooterLinks({ links, title }) {
         className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-5"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        animate="visible"
       >
         {links?.map((link, i) => (
           <motion.div key={i} variants={itemVariants}>
