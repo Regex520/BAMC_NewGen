@@ -67,10 +67,10 @@ export default function App() {
       )}
 
       <div className="relative my-4 sm:my-8">
-        <div className="absolute right-0 bottom-2 sm:bottom-3 text-[11px] sm:text-[18px] font-bold text-[#0044cc] px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/70 backdrop-blur-sm rounded-md sm:rounded-lg shadow-sm">
+        <div className="text-center sm:absolute sm:right-0 sm:bottom-2 sm:bottom-3 text-[11px] sm:text-[18px] font-bold text-[#0044cc] px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/70 backdrop-blur-sm rounded-md sm:rounded-lg shadow-sm sm:inline-block">
           {weatherData?.realtimeData?.publishTime || '加载中...'}
         </div>
-        <div className="divider-gradient" />
+        <div className="divider-gradient mt-1 sm:mt-0" />
       </div>
 
       <div className="mt-8 sm:mt-16 pb-8 sm:pb-0">

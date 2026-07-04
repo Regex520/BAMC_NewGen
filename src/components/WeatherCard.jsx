@@ -25,7 +25,7 @@ const itemVariants = {
 export default function WeatherCard({ data }) {
   return (
     <motion.div
-      className="glass-card flex flex-col sm:flex-row items-center justify-start gap-6 sm:gap-[60px] mb-6 sm:mb-[100px] max-w-fit px-4 py-6 sm:px-[60px] sm:py-[40px] w-full sm:max-w-fit"
+      className="glass-card flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-6 sm:gap-[60px] mb-6 sm:mb-[100px] max-w-fit px-4 py-6 sm:px-[60px] sm:py-[40px] w-full sm:max-w-fit mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: 'spring', damping: 25, stiffness: 200 }}
