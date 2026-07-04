@@ -73,7 +73,10 @@ def generate_weather_data():
 if __name__ == '__main__':
     try:
         weather_data = generate_weather_data()
-        with open('weather-data.json', 'w', encoding='utf-8') as f:
+        import os
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.join(script_dir, '..', 'public', 'weather-data.json')
+        with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(weather_data, f, ensure_ascii=False, indent=2)
         print('✅ weather-data.json 更新成功！')
     except Exception as e:
