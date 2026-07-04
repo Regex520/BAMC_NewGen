@@ -6,48 +6,41 @@
   },
   "weatherTip": {
     "buttonText": "天气提示",
-    "content": "受高压脊和台风“美莎克”外围环流影响下，今明两日骤雨频密，沿海、高地及海区最大阵风8级左右。周日至下周初受偏南急流影响，仍有明显降雨，并伴有雷电和短时大风。<br><br>点击下方按钮或空白区域可关闭。",
+    "content": "受季风影响，周日至下周中期暴雨风险高。展望下周后期受台风“巴威”外围下沉气流影响，天气渐转晴热，有一次高温过程。<br><br>点击下方按钮或空白区域可关闭。",
     "closeButtonText": "关闭提示"
   },
   "forecast": {
     "buttonText": "天气预报",
     "title": "深圳市7天天气预报",
-    "releaseTime": "2026-07-03 16:00",
+    "releaseTime": "2026-07-04 16:00",
     "closeButtonText": "关闭预报",
     "days": [
       {
-        "date": "7月4日",
-        "icon": "⛈\uFE0F",
-        "tip": "阴天，有暴雨",
-        "highTemp": "29℃",
-        "lowTemp": "25℃"
-      },
-      {
         "date": "7月5日",
         "icon": "⛈\uFE0F",
-        "tip": "阴天，有雷阵雨，局部暴雨",
+        "tip": "阴天间多云，有雷阵雨，局部暴雨",
         "highTemp": "30℃",
         "lowTemp": "25℃"
       },
       {
         "date": "7月6日",
         "icon": "⛈\uFE0F",
-        "tip": "阴天间多云，有大雨到暴雨",
-        "highTemp": "30℃",
+        "tip": "阴天间多云，有雷阵雨，局部暴雨",
+        "highTemp": "31℃",
         "lowTemp": "25℃"
       },
       {
         "date": "7月7日",
         "icon": "⛈\uFE0F",
-        "tip": "阴天间多云，有雷阵雨，局部暴雨",
-        "highTemp": "31℃",
-        "lowTemp": "26℃"
+        "tip": "阴天间多云，有大雨到暴雨",
+        "highTemp": "30℃",
+        "lowTemp": "25℃"
       },
       {
         "date": "7月8日",
         "icon": "⛈\uFE0F",
-        "tip": "多云间阴天，有雷阵雨",
-        "highTemp": "32℃",
+        "tip": "多云间阴天，有雷阵雨，局部暴雨",
+        "highTemp": "31℃",
         "lowTemp": "26℃"
       },
       {
@@ -59,21 +52,28 @@
       },
       {
         "date": "7月10日",
-        "icon": "\uD83C\uDF24\uFE0F",
-        "tip": "多云间晴，局部有（雷）阵雨",
+        "icon": "☀\uFE0F",
+        "tip": "晴间多云",
         "highTemp": "35℃",
+        "lowTemp": "28℃"
+      },
+      {
+        "date": "7月11日",
+        "icon": "☀\uFE0F",
+        "tip": "晴间多云，局部有短时（雷）阵雨",
+        "highTemp": "34℃",
         "lowTemp": "28℃"
       }
     ]
   },
   "realtimeData": {
     "stationTitle": "宝安中学实况",
-    "temperature": "27.9℃",
-    "wind": "东风 2 级",
-    "humidity": "82%",
-    "hourlyRain": "0mm",
-    "dailyRain": "2.4mm",
-    "publishTime": "发布时间 07-03 16:27"
+    "temperature": "27.0℃",
+    "wind": "东南偏南风 2 级",
+    "humidity": "86%",
+    "hourlyRain": "0.2mm",
+    "dailyRain": "30.5mm",
+    "publishTime": "发布时间 07-03 15:46"
   },
   "functionLinks": {
     "title": "其它网站",
