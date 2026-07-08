@@ -55,7 +55,7 @@
         "icon": "⛈\uFE0F",
         "tip": "多云，有雷阵雨，间中雨势较大",
         "highTemp": "31℃",
-        "lowTemp": "27℃",
+        "lowTemp": "27℃"
       },
       {
         "date": "7月15日",
@@ -68,12 +68,12 @@
   },
   "realtimeData": {
     "stationTitle": "宝安中学实况",
-    "temperature": "27.5℃",
-    "wind": "东南偏东风 2 级",
-    "humidity": "91%",
-    "hourlyRain": "0.2mm",
-    "dailyRain": "132.5mm",
-    "publishTime": "发布时间 07-07 15:25"
+    "temperature": "27.6℃",
+    "wind": "偏南风 2 级",
+    "humidity": "83%",
+    "hourlyRain": "2.0mm",
+    "dailyRain": "15.1mm",
+    "publishTime": "发布时间 07-08 16:51"
   },
   "functionLinks": {
     "title": "其它网站",
