@@ -18,7 +18,7 @@ const itemVariants = {
 
 export default function FooterLinks({ links, title }) {
   return (
-    <>
+    <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/40">
       <div className="text-lg sm:text-[22px] font-bold mb-3 sm:mb-6 text-[#0044cc] text-center sm:text-left">
         {title || '其它网站'}
       </div>
@@ -43,6 +43,6 @@ export default function FooterLinks({ links, title }) {
           </motion.div>
         ))}
       </motion.div>
-    </>
+    </div>
   )
 }
