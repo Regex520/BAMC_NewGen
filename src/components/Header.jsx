@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function Header({ onOpenTip, onOpenForecast }) {
+export default function Header({ onOpenTip, onOpenForecast, isBg2 }) {
   return (
     <header className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 py-3 sm:py-4 px-4 sm:px-6 bg-white/70 backdrop-blur-md border-b border-white/40 rounded-2xl mb-5 sm:mb-8">
       <div className="flex items-center gap-3">
@@ -11,7 +11,7 @@ export default function Header({ onOpenTip, onOpenForecast }) {
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: 'spring', stiffness: 300 }}
         />
-        <div className="text-base sm:text-lg font-bold text-[#0044cc]">宝安中学气象社 BAMC</div>
+        <div className="text-base sm:text-lg font-bold text-[#0044cc]">{isBg2 ? '宝安中学魔裁社 BAMC' : '宝安中学气象社 BAMC'}</div>
       </div>
       <div className="flex gap-2.5 sm:gap-4">
         <motion.button

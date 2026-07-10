@@ -33,7 +33,7 @@ export default function App() {
       className="bg-cover bg-[position:right_center] sm:bg-center bg-fixed bg-no-repeat text-black max-w-[1600px] mx-auto p-3 sm:p-5 min-h-screen"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <Header onOpenTip={() => setTipOpen(true)} onOpenForecast={() => setForecastOpen(true)} />
+      <Header onOpenTip={() => setTipOpen(true)} onOpenForecast={() => setForecastOpen(true)} isBg2={bg === '/bg2.jpg'} />
 
       <TipModal
         isOpen={tipOpen}
