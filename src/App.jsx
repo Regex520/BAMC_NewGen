@@ -6,11 +6,14 @@ import TipModal from './components/TipModal'
 import ForecastModal from './components/ForecastModal'
 import FooterLinks from './components/FooterLinks'
 
+const backgrounds = ['/bg.jpg', '/bg2.jpg']
+
 export default function App() {
   const [weatherData, setWeatherData] = useState(null)
   const [tipOpen, setTipOpen] = useState(false)
   const [forecastOpen, setForecastOpen] = useState(false)
   const [error, setError] = useState(false)
+  const [bg] = useState(() => backgrounds[Math.floor(Math.random() * backgrounds.length)])
 
   useEffect(() => {
     fetch('/weather-data.json')
@@ -28,7 +31,7 @@ export default function App() {
   return (
     <div
       className="bg-cover bg-[position:right_center] sm:bg-center bg-fixed bg-no-repeat bg-white/75 bg-blend-lighten text-black max-w-[1600px] mx-auto p-3 sm:p-5 min-h-screen"
-      style={{ backgroundImage: 'url(/bg.jpg)', backgroundColor: 'rgba(255,255,255,0.75)' }}
+      style={{ backgroundImage: `url(${bg})`, backgroundColor: 'rgba(255,255,255,0.75)' }}
     >
       <Header onOpenTip={() => setTipOpen(true)} onOpenForecast={() => setForecastOpen(true)} />
 
