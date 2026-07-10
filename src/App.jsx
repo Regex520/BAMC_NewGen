@@ -30,8 +30,8 @@ export default function App() {
 
   return (
     <div
-      className="bg-cover bg-[position:right_center] sm:bg-center bg-fixed bg-no-repeat bg-white/75 bg-blend-lighten text-black max-w-[1600px] mx-auto p-3 sm:p-5 min-h-screen"
-      style={{ backgroundImage: `url(${bg})`, backgroundColor: 'rgba(255,255,255,0.75)' }}
+      className="bg-cover bg-[position:right_center] sm:bg-center bg-fixed bg-no-repeat text-black max-w-[1600px] mx-auto p-3 sm:p-5 min-h-screen"
+      style={{ backgroundImage: `url(${bg})` }}
     >
       <Header onOpenTip={() => setTipOpen(true)} onOpenForecast={() => setForecastOpen(true)} />
 
