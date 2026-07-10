@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Header({ onOpenTip, onOpenForecast }) {
   return (
-    <header className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 py-3 sm:py-4 px-4 sm:px-6 bg-white/70 backdrop-blur-md border-b border-white/40 mb-5 sm:mb-8">
+    <header className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 py-3 sm:py-4 px-4 sm:px-6 bg-white/70 backdrop-blur-md border-b border-white/40 rounded-2xl mb-5 sm:mb-8">
       <div className="flex items-center gap-3">
         <motion.img
           className="w-10 h-10 sm:w-[50px] sm:h-[50px] rounded-full shadow-md"
