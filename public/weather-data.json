@@ -6,53 +6,53 @@
   },
   "weatherTip": {
     "buttonText": "天气提示",
-     "content": "受强盛偏南气流和东风波动共同影响，预计29日有暴雨，局部大暴雨，30日有大到暴雨，并伴有雷电和短时大风。31日-8月3日受偏南气流和中层波动影响，仍有降雨，局部暴雨风险高。<br><br>点击下方按钮或空白区域可关闭。",
+     "content": "受偏南气流影响，30-31日有雷阵雨，局部雨势较大。8月1-3日可能受东风波系统影响，降雨再趋频繁，暴雨风险高。展望8月4-5日，季风维持，仍有强降雨风险。<br><br>点击下方按钮或空白区域可关闭。",
     "closeButtonText": "关闭提示"
   },
   "forecast": {
     "buttonText": "天气预报",
     "title": "深圳市7天天气预报",
-    "releaseTime": "2026-07-28 20:00",
+    "releaseTime": "2026-07-29 13:00",
     "closeButtonText": "关闭预报",
     "days": [
       {
-        "date": "7月29日",
-        "icon": "\uD83C\uDF27\uFE0F",
-        "tip": "阴天，有暴雨，局部大暴雨",
-        "highTemp": "29℃",
-        "lowTemp": "25℃"
-      },
-      {
         "date": "7月30日",
-        "icon": "\uD83C\uDF27\uFE0F",
-        "tip": "阴天转多云，有大雨到暴雨",
+        "icon": "⛈\uFE0F",
+        "tip": "多云间阴天，有雷阵雨，局部雨势较大",
         "highTemp": "30℃",
         "lowTemp": "25℃"
       },
       {
         "date": "7月31日",
-        "icon": "\uD83C\uDF27\uFE0F",
+        "icon": "⛈\uFE0F",
+        "tip": "多云间阴天，有雷阵雨，局部雨势较大",
+        "highTemp": "31℃",
+        "lowTemp": "26℃"
+      },
+      {
+        "date": "8月1日",
+        "icon": "⛈\uFE0F",
         "tip": "多云间阴天，有雷阵雨，局部暴雨",
         "highTemp": "30℃",
         "lowTemp": "25℃"
       },
       {
-        "date": "8月1日",
-        "icon": "⛈\uFE0F",
-        "tip": "多云间阴天，有雷阵雨",
+        "date": "8月2日",
+        "icon": "\uD83C\uDF27\uFE0F",
+        "tip": "阴天间多云，有雷阵雨，局部暴雨",
         "highTemp": "30℃",
         "lowTemp": "26℃"
       },
       {
-        "date": "8月2日",
+        "date": "8月3日",
         "icon": "⛈\uFE0F",
-        "tip": "多云间阴天，有雷阵雨",
+        "tip": "多云间阴天，有雷阵雨，间中雨势较大",
         "highTemp": "31℃",
         "lowTemp": "26℃"
       },
       {
-        "date": "8月3日",
-        "icon": "\uD83C\uDF26\uFE0F",
+        "date": "8月4日",
+        "icon": "⛈\uFE0F",
         "tip": "多云，有（雷）阵雨",
         "highTemp": "31℃",
         "lowTemp": "26℃"
@@ -60,7 +60,7 @@
       {
         "date": "8月4日",
         "icon": "\uD83C\uDF26\uFE0F",
-        "tip": "多云，间中有阳光，有阵雨",
+        "tip": "多云，有阵雨",
         "highTemp": "32℃",
         "lowTemp": "26℃"
       }
@@ -68,12 +68,12 @@
   },
   "realtimeData": {
     "stationTitle": "宝安中学实况",
-    "temperature": "27.0℃",
+    "temperature": "27.3℃",
     "wind": "偏东风 1 级",
     "humidity": "91%",
-    "hourlyRain": "1.6mm",
-    "dailyRain": "29.3mm",
-    "publishTime": "发布时间 07-29 10:40"
+    "hourlyRain": "1.4mm",
+    "dailyRain": "26.8mm",
+    "publishTime": "发布时间 07-29 13:06"
   },
   "functionLinks": {
     "title": "其它网站",
