@@ -11,7 +11,7 @@
   "forecast": {
     "buttonText": "天气预报",
     "title": "深圳市7天天气预报",
-    "releaseTime": "2026-08-04 19:00",
+    "releaseTime": "2026-08-05 08:30",
     "closeButtonText": "关闭预报",
     "days": [
       {
@@ -46,7 +46,7 @@
         "date": "8月9日",
         "icon": "☀\uFE0F",
         "tip": "晴间多云",
-        "highTemp": "35℃",
+        "highTemp": "36℃",
         "lowTemp": "28℃"
       },
       {
@@ -68,11 +68,11 @@
   "realtimeData": {
     "stationTitle": "宝安中学实况",
     "temperature": "28.7℃",
-    "wind": "偏南风 2 级",
-    "humidity": "83%",
+    "wind": "东南偏东风 1 级",
+    "humidity": "72%",
     "hourlyRain": "0mm",
-    "dailyRain": "0.3mm",
-    "publishTime": "发布时间 08-04 19:26"
+    "dailyRain": "0mm",
+    "publishTime": "发布时间 08-05 08:53"
   },
   "functionLinks": {
     "title": "其它网站",
