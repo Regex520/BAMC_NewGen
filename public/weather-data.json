@@ -6,7 +6,7 @@
   },
   "weatherTip": {
     "buttonText": "天气提示",
-    "content": "预计8-10日受台风“白海豚”外围下沉气流影响，天气晴热，最高温度可达36℃左右，8日局部有（雷）阵雨。11日起转受西南气流影响，多云为主，间中有（雷）阵雨。14日起雷雨趋于明显。<br><br>点击下方按钮或空白区域可关闭。"
+    "content": "预计9-10日受台风“白海豚”外围下沉气流影响，天气晴热，最高温度可达37℃左右。11-13日转受西南气流影响，多云为主，间中有（雷）阵雨。14日起雷雨趋于明显。<br><br>点击下方按钮或空白区域可关闭。"
   },
   "forecast": {
     "buttonText": "天气预报",
@@ -15,24 +15,17 @@
     "closeButtonText": "关闭预报",
     "days": [
       {
-        "date": "8月8日",
-        "icon": "☀\uFE0F",
-        "tip": "晴间多云，局部有（雷）阵雨",
-        "highTemp": "36℃",
-        "lowTemp": "28℃"
-      },
-      {
         "date": "8月9日",
         "icon": "☀\uFE0F",
         "tip": "晴间多云",
-        "highTemp": "36℃",
-        "lowTemp": "28℃"
+        "highTemp": "37℃",
+        "lowTemp": "29℃"
       },
       {
         "date": "8月10日",
         "icon": "☀\uFE0F",
         "tip": "晴间多云",
-        "highTemp": "35℃",
+        "highTemp": "36℃",
         "lowTemp": "29℃"
       },
       {
@@ -44,20 +37,27 @@
       },
       {
         "date": "8月12日",
-        "icon": "\uD83C\uDF29\uFE0F",
+        "icon": "\uD83C\uDF26\uFE0F",
         "tip": "多云，间中有（雷）阵雨",
         "highTemp": "33℃",
         "lowTemp": "27℃"
       },
       {
         "date": "8月13日",
-        "icon": "\uD83C\uDF29\uFE0F",
+        "icon": "\uD83C\uDF26\uFE0F",
         "tip": "多云，间中有（雷）阵雨",
-        "highTemp": "33℃",
-        "lowTemp": "26℃"
+        "highTemp": "32℃",
+        "lowTemp": "27℃"
       },
       {
         "date": "8月14日",
+        "icon": "\uD83C\uDF29\uFE0F",
+        "tip": "多云间阴天，有（雷）阵雨",
+        "highTemp": "32℃",
+        "lowTemp": "26℃"
+      },
+      {
+        "date": "8月15日",
         "icon": "\uD83C\uDF29\uFE0F",
         "tip": "多云间阴天，有（雷）阵雨",
         "highTemp": "32℃",
@@ -67,12 +67,12 @@
   },
   "realtimeData": {
     "stationTitle": "宝安中学实况",
-    "temperature": "35.1℃",
+    "temperature": "32.2℃",
     "wind": "西北风 2 级",
-    "humidity": "54%",
+    "humidity": "64%",
     "hourlyRain": "0mm",
     "dailyRain": "0mm",
-    "publishTime": "发布时间 08-08 13:17"
+    "publishTime": "发布时间 08-08 17:49"
   },
   "functionLinks": {
     "title": "其它网站",
